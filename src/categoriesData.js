@@ -25,8 +25,8 @@ const categoriesData = [
     options: [
       'Puma',
       'Roadster',
-      'H&M',
-      'max',
+      'Levis',
+      'HRX by Hrithik Roshan',
     ],
   }
 ];
