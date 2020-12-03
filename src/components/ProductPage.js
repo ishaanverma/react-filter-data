@@ -1,12 +1,13 @@
 import React from 'react';
 import ProductList from "./ProductList";
+import LoadingIndicator from "./LoadingIndicator";
 
 const ProductPage = ({ products }) => {
   return (
     <div className="container-fluid">
       <div className="row">
         {products.isLoading ? (
-          <p>Loading...</p>
+          <LoadingIndicator />
         ) : (
           <ProductList products={products.filtered} />
         )}
