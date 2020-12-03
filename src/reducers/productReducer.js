@@ -19,18 +19,14 @@ export const productReducer = produce((draft, action) => {
       break;
     case 'ADD_FILTER_CATEGORY':
       draft.filters.push(action.payload);
-      draft.filtered = []
-
-      // Treat Multiple filters from same category as 'OR' relation
-      // Different category as 'AND' Relation
-      for (let obj of draft.filters) {
-        draft.filtered = draft.filtered.concat(draft.data.filter((item) => {
+      draft.filtered = draft.data.filter((item) => {
+        for (let obj of draft.filters) {
           if (item[obj.categoryProp] === undefined || item[obj.categoryProp] !== obj.value) {
             return false;
           }
-          return true;
-        }));
-      }
+        }
+        return true;
+      });
       break;
     case 'REMOVE_FILTER_CATEGORY':
       let tempIndex = draft.filters.findIndex((element) =>
