@@ -4,15 +4,7 @@ import FilterSection from "./FilterSection";
 
 const Filters = ({ dispatch }) => {
   return (
-    <div className="filters my-5">
-      <div className="row">
-        <div className="col">
-          <h5>FILTERS</h5>
-        </div>
-      </div>
-      <div style={{ width: '100%' }}>
-        <hr/>
-      </div>
+    <div className="filters my-3">
       {categoriesData.map((item, index) =>
         <FilterSection
           key={index}

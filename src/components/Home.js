@@ -35,6 +35,12 @@ const Home = () => {
 
   return (
     <>
+      <div className="container-fluid mt-3">
+        <div className="container filter-bar">
+            <h5 className="my-auto">FILTERS</h5>
+          <hr />
+        </div>
+      </div>
       <div className="container main">
         <Filters dispatch={dispatchProducts} />
         <ProductPage products={products} />

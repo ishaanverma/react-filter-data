@@ -27,7 +27,11 @@ $container-max-widths: (
   width: 300px;
   display: flex;
   flex-direction: column;
-  // background-color: indigo;
+}
+
+.filter-bar {
+  height: 50px;
+  align-items: center;
 }
 
 .product-card {
