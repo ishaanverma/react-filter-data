@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import categoriesData from "../categoriesData";
+import FilterSection from "./FilterSection";
 
 const Filters = ({ dispatch }) => {
   return (
@@ -24,63 +25,5 @@ const Filters = ({ dispatch }) => {
     </div>
   )
 };
-
-const FilterSection = ({ categoryName, categoryProp, options, dispatch }) => {
-  const filterList = (value, type) => {
-    console.log(categoryProp, value);
-    dispatch({
-      type,
-      payload: {
-        categoryProp,
-        value,
-      }
-    });
-  };
-
-  return (
-    <>
-      <div className="row">
-        <div className="col">
-          <h5>{ categoryName }</h5>
-          {options.map((item, index) =>
-            <Checkbox key={item} item={item} onChecked={filterList} />
-          )}
-        </div>
-      </div>
-      <div style={{ width: '100%' }}>
-        <hr/>
-      </div>
-    </>
-  );
-};
-
-const Checkbox = ({ item, onChecked }) => {
-  const [checked, setChecked] = useState(false);
-
-  const handleChecked = (event) => {
-    if (checked === false) {
-      onChecked(event.target.name, 'ADD_FILTER_CATEGORY');
-    } else {
-      onChecked(event.target.name, 'REMOVE_FILTER_CATEGORY');
-    }
-    setChecked(!checked);
-  }
-
-  return(
-    <div className="form-check">
-      <input
-        className="form-check-input"
-        type="checkbox"
-        checked={checked}
-        onChange={handleChecked}
-        name={`${item}`}
-        id={`defaultCheck${item}`}
-      />
-      <label className="form-check-label" htmlFor={`defaultCheck${item}`}>
-        {item}
-      </label>
-    </div>
-  );
-}
 
 export default Filters;
