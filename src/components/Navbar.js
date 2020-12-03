@@ -4,7 +4,7 @@ import React from "react";
 const Navbar = () => {
   return (
     <div className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-      <div className="navbar-brand">Myntra</div>
+      <div className="navbar-brand">Shop</div>
       <button
         className="navbar-toggler"
         type="button"
@@ -34,11 +34,11 @@ const Navbar = () => {
             <a className="nav-link" href="#">OFFERS</a>
           </li>
         </ul>
-      </div>
-      <form className="form-inline">
-        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+        <form className="form-inline">
+          <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
         <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
+      </div>
     </div>
   );
 };
