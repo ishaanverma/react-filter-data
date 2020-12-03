@@ -1,1 +1,63 @@
-@import "../node_modules/bootstrap/scss/bootstrap.scss"
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1480px,
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1400px,
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+.main {
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+}
+
+.filters {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  // background-color: indigo;
+}
+
+.product-card {
+  max-width: 210px;
+  height: 375px;
+  border: 1px solid grey;
+  margin: 1em;
+
+  &__info {
+    padding: 0.5em;
+  }
+
+  &__brand {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+  }
+
+  &__name {
+    margin: 0;
+    padding: 0;
+    color: grey;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  &__price {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+  }
+}

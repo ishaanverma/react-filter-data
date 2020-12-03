@@ -1,8 +1,45 @@
-import React from "react";
+import React, { useEffect, useReducer, useCallback } from "react";
+import axios from "axios";
+import ProductPage from "./ProductPage";
+import Filters from "./Filters";
+import { productReducer } from '../reducers/productReducer';
+import { API_URL } from "../constants";
 
 const Home = () => {
+  const [products, dispatchProducts] = useReducer(productReducer, {
+    data: [],
+    filtered: [],
+    filters: [],
+    isLoading: false,
+    isError: false,
+  });
+
+  // Function to fetch products from API
+  const fetchProducts = useCallback(async () => {
+    dispatchProducts({ type: "PRODUCT_FETCH_INIT" });
+    const result = await axios.get(API_URL);
+
+    try {
+      dispatchProducts({
+        type: "PRODUCT_FETCH_SUCCESS",
+        payload: result.data.products,
+      });
+    } catch {
+      dispatchProducts({ type: "PRODUCT_FETCH_FAILURE" });
+    }
+  }, [])
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
+
   return (
-    <div>Home</div>
+    <>
+      <div className="container main">
+        <Filters dispatch={dispatchProducts} />
+        <ProductPage products={products} />
+      </div>
+    </>
   );
 };
 
